@@ -14,6 +14,8 @@ function random(){
 
      const img = document.createElement("img");
      img.src = card.image_uris.border_crop;
+     img.style.borderRadius = "10px";
+     img.style.boxShadow = "8px 8px 15px black"
 
       // Create content element
       const setTitle = document.createElement("h3");

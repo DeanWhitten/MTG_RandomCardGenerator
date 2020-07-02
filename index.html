@@ -23,7 +23,6 @@
             width: 100vw;
             height: 100vh;
 
-            background-color: burlywood;
             display: flex;
             flex-direction: row-reverse;
             align-items: flex-start;
@@ -34,6 +33,7 @@
             text-align: center;
             width: 50vw;
             height: 100vh;
+            box-shadow: 15px 0px 20px rgba(0, 0, 0, 0.055);
             
         }
 
@@ -51,8 +51,11 @@
         }
         #prices{
             display: flex;
-            padding: 30px;
+            padding: 10px;
+            margin: 40px;
             justify-content: space-evenly;
+            border: 1px solid rgba(80, 80, 80, 0.219);
+            border-radius: 5px;
         }
      
 
@@ -63,10 +66,17 @@
 
         }
 
-        .subcontainer{
+        #subcontainer{
             flex-grow: 8;
+            background-position: center;
         }
 
+        button{
+            background-color: aliceblue;
+            border: 1px solid rgba(80, 80, 80, 0.219);
+            padding: 10px;
+            border-radius: 5px;
+        }
 
 
 
@@ -76,7 +86,8 @@
 <body>
 
     <div class="container">
-        <div class="subcontainer"> <div id = "prices">
+        <div id="subcontainer"> 
+        <div id = "prices">
             <h4>Current Prices</h4>
         </div>
         <button id= "newCard" onclick="random()">New Card</button></div>
