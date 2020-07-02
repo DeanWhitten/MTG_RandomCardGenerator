@@ -1,51 +1,51 @@
-function random(){
-  location.reload();
-};
+
 
   fetch("https://api.scryfall.com/cards/random")
   .then(response => response.json()) // Translate JSON into JavaScript
   .then(card => {
     
-    
+    // Card image
+    const img = document.createElement("img");
+    img.src = card.image_uris.border_crop;
+    img.style.borderRadius = "10px";
+    img.style.boxShadow = "8px 8px 15px black";
 
-      // Create title element
+    // Card Title
     const titleElement = document.createElement("h1");
     titleElement.innerHTML = card.name;
+    cardName.appendChild(titleElement);
 
-     const img = document.createElement("img");
-     img.src = card.image_uris.border_crop;
-     img.style.borderRadius = "10px";
-     img.style.boxShadow = "8px 8px 15px black"
+    
 
-      // Create content element
-      const setTitle = document.createElement("h3");
-      setTitle.innerHTML = card.set_name;
+    // Set Name
+    set.innerHTML = card.set_name;
 
-      const text = document.createElement("p");
-      text.innerHTML = "Released : " + card.released_at;
+
+    // Release date
+    release.innerHTML =  card.released_at;
 
 
 
-      const price = document.createElement("p");
-      const foilPrice = document.createElement("p");
+    const price = document.createElement("p");
+    const foilPrice = document.createElement("p");
 
-      if(card.prices.usd != null && card.prices.usd_foil != null){
+    if(card.prices.usd != null && card.prices.usd_foil != null){
+      price.innerHTML = "Price: $" + card.prices.usd;
+      foilPrice.innerHTML = "Foil Price: $" + card.prices.usd_foil;
+    }else{
+      if(card.prices.usd == null && card.prices.usd_foil == null){
+        price.innerHTML = "Price: UNAVAILABLE";
+        foilPrice.innerHTML = "Foil Price: UNAVAILABLE";
+      }else if (card.prices.usd_foil == null){
         price.innerHTML = "Price: $" + card.prices.usd;
+        foilPrice.innerHTML = "Foil Price: UNAVAILABLE";
+      } else{
+        price.innerHTML = "Price: UNAVAILABLE";
         foilPrice.innerHTML = "Foil Price: $" + card.prices.usd_foil;
-      }else{
-        if(card.prices.usd == null && card.prices.usd_foil == null){
-          price.innerHTML = "Price: UNAVAILABLE";
-          foilPrice.innerHTML = "Foil Price: UNAVAILABLE";
-        }else if (card.prices.usd_foil == null){
-          price.innerHTML = "Price: $" + card.prices.usd;
-          foilPrice.innerHTML = "Foil Price: UNAVAILABLE";
-        } else{
-          price.innerHTML = "Price: UNAVAILABLE";
-          foilPrice.innerHTML = "Foil Price: $" + card.prices.usd_foil;
-        }
       }
+    }
 
-      let color = card.color_identity[0];
+    let color = card.color_identity[0];
       
       switch(color){
         case "G":
@@ -73,13 +73,18 @@ function random(){
 
       // Add title and content to the page
       const articlesElement = document.getElementById("articles");
-      articlesElement.appendChild(titleElement);
+      
       articlesElement.appendChild(img);
-      articlesElement.appendChild(setTitle);
-      articlesElement.appendChild(text);
+      
+
+
+
+      
+
+
       if(card.reprint == true){
-        const reprintText = document.createElement("p");
-        reprintText.innerHTML = "REPRINT";
+       
+        reprint.innerHTML = "REPRINT";
         articlesElement.appendChild(reprintText);
       }
 
@@ -97,5 +102,6 @@ function random(){
 
 
 
-
-document.getElementById("newCard").addEventListener("click", random);
+function random(){
+  location.reload();
+};

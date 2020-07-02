@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTG Card Generator</title>
+    <link rel="stylesheet" href="style.css">
     <script src="script.js">
         
     </script>
@@ -40,19 +41,21 @@
   
 
         img{
-            width: 250px;
-            height: 350px;
+            margin-top: 100px;
+            width: 500px;
+            height: 720px;
         }
 
         #articles p {
             align-self: center;
-            padding-top: 40px;
+            margin-top: 140px;
 
         }
-        #prices{
+        #prices, #setContainer, #cardName{
+            background-color: aliceblue;
             display: flex;
-            padding: 10px;
-            margin: 40px;
+            padding: 15px;
+            margin: 30px;
             justify-content: space-evenly;
             border: 1px solid rgba(80, 80, 80, 0.219);
             border-radius: 5px;
@@ -69,15 +72,30 @@
         #subcontainer{
             flex-grow: 8;
             background-position: center;
+            text-align: center;
         }
 
         button{
-            background-color: aliceblue;
+            background-color: #607e97;
+            color: aliceblue;
             border: 1px solid rgba(80, 80, 80, 0.219);
-            padding: 10px;
+            padding: 15px;
+            padding-right: 30px;
+            padding-left: 30px;
             border-radius: 5px;
+            box-shadow: 3px 3px 2px aliceblue;
+            transition: background-color .5s ease;
         }
 
+        button:hover{
+            color: #83a9c8;
+            background-color: rgb(192, 207, 219);
+            
+        }
+
+        h4{
+            color: #607e97;
+        }
 
 
 
@@ -87,12 +105,25 @@
 
     <div class="container">
         <div id="subcontainer"> 
-        <div id = "prices">
-            <h4>Current Prices</h4>
+            <div id="cardName"></div>
+
+            <div id="setContainer">
+                <h4>Set: </h4>
+                <div id="set"></div>
+                <h4>Release Date:</h4>
+                <div id="release">
+                    <div id="reprint"></div>
+                </div>
+            </div>
+     
+            <div id = "prices">
+                <h4>Current Prices</h4>
+            </div>
+
+            <button id= "newCard" onclick="random()">New Card</button>
         </div>
-        <button id= "newCard" onclick="random()">New Card</button></div>
        
-    <div id="articles"></div>
+        <div id="articles"></div>
 
     </div>
 </body>
