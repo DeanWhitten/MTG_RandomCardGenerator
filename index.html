@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Card Generator</title>
+    <script src="script.js">
+        
+    </script>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        h1{
+            padding: 30px;
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+
+            background-color: burlywood;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: flex-start;
+            align-content: space-between;
+        }
+        #articles{
+            padding: 10px;
+            text-align: center;
+            width: 50vw;
+            height: 100vh;
+            
+        }
+
+  
+
+        img{
+            width: 250px;
+            height: 350px;
+        }
+
+        #articles p {
+            align-self: center;
+            padding-top: 40px;
+
+        }
+        #prices{
+
+            padding: 30px;
+        }
+
+        #newCard{
+
+  
+            margin: 30px;
+
+        }
+
+        .subcontainer{
+            flex-grow: 8;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="subcontainer"> <div id = "prices">
+            <h4>Current Prices</h4>
+        </div>
+        <button id= "newCard" onclick="random()">New Card</button></div>
+       
+    <div id="articles"></div>
+
+    </div>
+</body>
+</html>
