@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTG Card Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <script src="script.js">
         
     </script>
@@ -42,8 +43,8 @@
 
         img{
             margin-top: 100px;
-            width: 500px;
-            height: 720px;
+            width: 25vw;
+            height: 55vh;
         }
 
         #articles p {
@@ -51,7 +52,7 @@
             margin-top: 140px;
 
         }
-        #prices, #setContainer, #cardName{
+        #prices, #setContainer, #cardName, #formatContainer{
             background-color: aliceblue;
             display: flex;
             padding: 15px;
@@ -73,6 +74,7 @@
             flex-grow: 8;
             background-position: center;
             text-align: center;
+            padding: 40px;
         }
 
         button{
@@ -93,29 +95,59 @@
             
         }
 
-        h4{
+        h4, h2, h1{
+            color: #23425f;
+            font-family: 'PT Sans', sans-serif;
+        }
+        p{
+            color: #6e8ca8;
+            font-family: 'PT Sans', sans-serif;
+        }
+
+
+        #formatContainer{
+            width: 50vw;
+        }
+        #formats{
+            display: flex;
+            flex-direction: columns;
+            flex-wrap: wrap;
+        }
+        #formats p{
+            padding: 30px;
+            flex-shrink: 10;
+        }
+
+        h5{
             color: #607e97;
         }
+
+
 
 
 
     </style>
 </head>
 <body>
-
+    <!--Main container-->
     <div class="container">
+        
+        <!--Container with info-->
         <div id="subcontainer"> 
+            <h1>Magic the Gathering: Random Card Generator</h1>
             <div id="cardName"></div>
-
             <div id="setContainer">
-                <h4>Set: </h4>
+                <h4>Set:</h4>
                 <div id="set"></div>
                 <h4>Release Date:</h4>
-                <div id="release">
-                    <div id="reprint"></div>
-                </div>
+                <div id="release"></div>
+                <div id="reprint"></div>
             </div>
-     
+            <div id="formatContainer">
+                <h4>Formats:</h4>
+                <div id="formats"></div>
+            </div>
+
             <div id = "prices">
                 <h4>Current Prices</h4>
             </div>
@@ -123,6 +155,7 @@
             <button id= "newCard" onclick="random()">New Card</button>
         </div>
        
+        <!--Image and colored background container-->
         <div id="articles"></div>
 
     </div>
