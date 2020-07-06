@@ -70,6 +70,8 @@ fetch("https://api.scryfall.com/cards/random")
       let formatItem12 = document.createElement("p");
       let formatItem13 = document.createElement("p");
 
+     
+
       formatItem1.innerHTML = "<h5> Brawl:</h5> " + card.legalities.brawl;
       formatItem2.innerHTML = "<h5>Commander: </h5>" + card.legalities.commader ;
       formatItem3.innerHTML = "<h5>Duel: </h5>" + card.legalities.duel;
@@ -129,12 +131,11 @@ fetch("https://api.scryfall.com/cards/random")
         foilPrice.innerHTML = "Foil Price: $" + card.prices.usd_foil;
       };
     };
-
   });
 
 
 // New card button's function
-function random(){
+document.getElementById("newCard").onclick = function random(){
   location.reload();
 };
 
